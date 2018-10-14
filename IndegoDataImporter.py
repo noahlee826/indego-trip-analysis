@@ -1,4 +1,4 @@
-import csv
+import  csv, urllib2, urllib
 
 class Trip:
     def __init__(self, trip_id, duration):
@@ -13,18 +13,31 @@ csv_filepath = 'tiny-indego-trips.csv'
 
 trips = {}
 
-count = 0;
+first_trip_id = ''
+
 print 'Starting...'
 
 with open(csv_filepath, 'rb') as csvfile:
     dictreader = csv.DictReader(csvfile)
-    trips = dictreader
 
-    for row in csvfile:
-        count += 1
-        if count % 10000 == 0:
-            print count
+    for row in dictreader:
+        trips[row['trip_id']] = row
 
-print 'Done! Final count:', str(count);
+    print 'Done!'
+    
+for key in trips:
+    first_trip_id = key if not first_trip_id else first_trip_id
 
-print size(trips)
+my_trip = trips[first_trip_id]
+params = urllib.urlencode((('fromPlace' , str(my_trip['start_lat']) + ',' + str(my_trip['start_lon'])),
+                           ('toPlace' , str(my_trip['end_lat']) + ',' + str(my_trip['end_lon'])),
+                           ('time', '4:20pm'),
+                           ('date', '10-14-2018'),
+                           ('mode' , 'BICYCLE')))
+print 'http://localhost:8080/otp/routers/default/plan?' + params
+
+f = urllib2.urlopen("http://localhost:8080/otp/routers/default/plan?", params)
+print f.read()
+
+                          
+                           

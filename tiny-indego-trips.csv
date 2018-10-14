@@ -1,4 +1,4 @@
-﻿trip_id,duration,start_time,end_time,start_station,start_lat,start_lon,end_station,end_lat,end_lon,bike_id,plan_duration,trip_route_category,passholder_type
+trip_id,duration,start_time,end_time,start_station,start_lat,start_lon,end_station,end_lat,end_lon,bike_id,plan_duration,trip_route_category,passholder_type
 241475855,3,4/1/2018 0:06,4/1/2018 0:09,3114,39.937752,-75.180122,3053,39.932308,-75.181541,2497,30,One Way,Indego30
 241475854,3,4/1/2018 0:09,4/1/2018 0:12,3156,39.953812,-75.174072,3165,39.958191,-75.1782,11738,30,One Way,Indego30
 241475851,8,4/1/2018 0:13,4/1/2018 0:21,3052,39.947319,-75.156952,3005,39.94733,-75.144028,3658,365,One Way,Indego365
